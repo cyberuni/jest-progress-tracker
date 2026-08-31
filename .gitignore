@@ -46,3 +46,6 @@ typings
 # project folders
 cjs
 .progress
+
+# publish gate
+publish-gate-report.md
