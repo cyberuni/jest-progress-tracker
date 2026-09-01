@@ -1,0 +1,27 @@
+# One package per line — never a wildcard. A `jest-*` glob elsewhere hid four packages
+# that nothing referenced any more.
+ignores:
+  # bin-only, invoked from `scripts`
+  - '@biomejs/biome'
+  - depcheck
+  - npm-run-all2
+  - rimraf
+  - tsdown
+  - turbo
+  - typescript
+  # invoked by .husky/commit-msg, and loaded by config files rather than imported
+  - '@commitlint/config-conventional'
+  - '@commitlint/cli'
+  - '@repobuddy/biome'
+  # loaded by jest.config.js / babel.config.js by name, never imported
+  - '@babel/core'
+  - '@babel/preset-env'
+  - '@babel/preset-typescript'
+  - babel-jest
+  - jest
+  - jest-audio-reporter
+  - jest-watch-suspend
+  - jest-watch-toggle-config
+  # type-only import in ts/transformTestResults.ts, which depcheck does not see. It is a
+  # runtime `dependencies` entry because the published `ts/` sources import it.
+  - istanbul-lib-coverage
