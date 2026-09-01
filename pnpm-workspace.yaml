@@ -1,0 +1,30 @@
+# `minimumReleaseAge` only runs STRICT when it comes from here (or config.yaml / CLI /
+# env). It used to live in `.npmrc` as `minimumreleaseage=1440`, which npm rejects as an
+# unknown key and pnpm reads in LOOSE mode: a too-young package is not refused, it is
+# silently appended to `minimumReleaseAgeExclude` and installed anyway. Keep both keys
+# together, here.
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+
+# Exact-version exclusions only, and every one of them is a first-party package from the
+# owner's own modernization sweep, published within the last 24h on the same day as this
+# change, each verified to carry `dist.attestations`. The soak exists to catch a
+# compromised third-party release; it cannot catch anything here, and without these this
+# repo cannot pick up its own upstream. `test-progress-tracker` is the runtime one;
+# `assertron` and `satisfier` are test-only, and the rest arrive through assertron.
+# Delete each entry once its version ages past the cutoff.
+minimumReleaseAgeExclude:
+  - assertron@11.5.4
+  - iso-error@6.0.5
+  - path-equal@1.2.7
+  - satisfier@5.4.4
+  - tersify@4.0.6
+  - test-progress-tracker@2.0.8
+  - unpartial@1.0.7
+
+# Native postinstalls pnpm blocks by default. Both are optional native accelerators
+# pulled in by jest 30's watch/resolve stack. Remove an entry when the tool that pulled
+# it in leaves.
+allowBuilds:
+  '@parcel/watcher': true
+  unrs-resolver: true

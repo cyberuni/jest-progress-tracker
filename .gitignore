@@ -49,3 +49,9 @@ cjs
 
 # publish gate
 publish-gate-report.md
+
+# turbo
+.turbo
+
+# tsdown
+dist
