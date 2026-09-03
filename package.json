@@ -6,13 +6,13 @@
 		"jest",
 		"reporters"
 	],
-	"homepage": "https://github.com/cyberuni/jest-progress-tracker",
+	"homepage": "https://github.com/repobuddy/jest-progress-tracker",
 	"bugs": {
-		"url": "https://github.com/cyberuni/jest-progress-tracker/issues"
+		"url": "https://github.com/repobuddy/jest-progress-tracker/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/cyberuni/jest-progress-tracker.git"
+		"url": "https://github.com/repobuddy/jest-progress-tracker.git"
 	},
 	"license": "MIT",
 	"main": "cjs/index.js",
